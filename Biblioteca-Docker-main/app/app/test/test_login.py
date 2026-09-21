@@ -7,9 +7,7 @@ def test_login_success(client, user):
     
     # Verificar que el login fue exitoso y que el usuario fue redirigido al dashboard
     assert response.status_code == 200
-    
-    expected_message = f"Welcome".encode('utf-8')
-    assert expected_message in response.data
+    assert b"Usuarios" in response.data
     
 def test_login_invalid_credentials(client):
   # Enviar una solicitud POST con credenciales incorrectas
